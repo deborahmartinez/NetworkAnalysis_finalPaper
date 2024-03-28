@@ -13,7 +13,7 @@ library(highcharter)
 ### World Trade Organization data: Bilateral imports
 # link: https://stats.wto.org/ (you need to selec "Bilateral imports and download)
 # in case of download from the WTO website, run the following commented lines (18-33),
-# otherwise, just run line 38, which is the filtered data
+# otherwise, decompress zip file and just run line 38, which is the filtered data
 
 # bd <- read.csv("~/Desktop/WtoData_20240312173556.csv", encoding = "UTF-8") %>%  as_tibble()
 # bd <- bd %>% janitor::clean_names()
