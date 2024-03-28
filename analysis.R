@@ -10,10 +10,23 @@ library(ggsankey)
 library(highcharter)
 
 # data reading ------------------------------------------------------------
+### World Bank metadata for region and income group
+
+# link: https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?view=chart
+#  this csv comes with every dataset from the world bank,
+# in case of download from the WB site, run the following commented lines (20-21),
+# and adjust the directory
+# otherwise, run line 23
+# atr <- read_csv("~/Desktop/API_NY.GDP.PCAP.CD_DS2_en_csv_v2_184/Metadata_Country_API_NY.GDP.PCAP.CD_DS2_en_csv_v2_184.csv")
+# atr <- atr %>%  janitor::clean_names() %>% select(country_code, region, income_group)
+
+atr <- read_csv("data/worldbank_metadata.csv")
+
+
 ### World Trade Organization data: Bilateral imports
-# link: https://stats.wto.org/ (you need to selec "Bilateral imports and download)
-# in case of download from the WTO website, run the following commented lines (18-33),
-# otherwise, decompress zip file and just run line 38, which is the filtered data
+# link: https://stats.wto.org/ (you need to select "Bilateral imports and download)
+# in case of download from the WTO website, run the following commented lines (31-46),
+# otherwise, decompress zip file and just run line 51, which is the filtered data
 
 # bd <- read.csv("~/Desktop/WtoData_20240312173556.csv", encoding = "UTF-8") %>%  as_tibble()
 # bd <- bd %>% janitor::clean_names()
@@ -36,17 +49,6 @@ library(highcharter)
 # samp <- sample(x = 1:2748, size = 100, replace = F) %>%  as_tibble()
 
 bd <- read_csv("data/peroleum2020_imports.csv")
-
-### World Bank metadata for region and income group
-# link: https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?view=chart
-#  this csv comes with every dataset from the world bank,
-# in case of download from the WB site, run the following commented lines,
-# and adjust the directory
-# otherwise, run line 49
-# atr <- read_csv("~/Desktop/API_NY.GDP.PCAP.CD_DS2_en_csv_v2_184/Metadata_Country_API_NY.GDP.PCAP.CD_DS2_en_csv_v2_184.csv")
-# atr <- atr %>%  janitor::clean_names() %>% select(country_code, region, income_group)
-
-atr <- read_csv("data/worldbank_metadata.csv")
 
 # data wrangling ---------------------------------------------------------
 
